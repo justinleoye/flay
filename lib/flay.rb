@@ -458,7 +458,7 @@ class Flay
   def split_and_group ary # :nodoc:
     ary.each_with_index.map { |s, i|
       c = (?A.ord + i).chr
-      s.scan(/^.*/).map { |s2|
+      s.gsub!("\n","\\n").scan(/^.*/).map { |s2|
         s2.group = c
         s2
       }
